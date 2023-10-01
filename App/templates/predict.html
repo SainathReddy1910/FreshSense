@@ -1,0 +1,137 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh Sense</title>
+    <link rel = "icon" href ="static/Images/sense.png"
+        type = "image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/styles/predict.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic. com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?  family=Exo+2:wght@600&family=Ysabeau  +Infant:wght@300&display=swap" rel="stylesheet">
+ </head>
+<body>
+    <div class="circle"></div>
+    <section>
+     <div class="center">
+         <div class="logo">
+            <img src="static\Images\sense.png" alt="">
+          </div>
+            <div class="head">
+                
+                <header>
+                <div class="head">
+                    <ul>
+                        <li><a href="{{ url_for('homepage') }} ">Home</a></li>
+                        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                        <li><a href="{{ url_for('upload_image') }}">Predict</a></li>
+                        <li><a href="{{ url_for('facts') }}">Facts</a></li>
+                    </ul>
+                </div>
+                </header>
+            
+            </div>
+        <div class="cent">
+            <div class="imgBox" id="imgBox">
+                <div class="row">
+                    <div class="col">
+                    <h2>Select a file to upload</h2>
+                    <p>
+                        {% with messages = get_flashed_messages() %}
+                          {% if messages %}
+                            <ul>
+                            {% for message in messages %}
+
+                              <li>{{ message }}</li>
+                            {% endfor %}
+                            </ul>
+                          {% endif %}
+                        {% endwith %}
+                    </p>
+                    {% if filename %}
+                            <img src="{{ url_for('display_image', filename=filename) }}">
+                    {% endif %}
+                    <form method="post" action="/" enctype="multipart/form-data">
+                        <dl>
+                            <p>
+                                <input type="file" name="image" class="form-control" autocomplete="off" required>
+                            </p>
+                        </dl>
+                        <p>
+                            <input type="submit" value="Submit" class="btn btn-info">
+                        </p>
+                    </form>
+                    <br>
+                    <h3>PREDICTION:{{a}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+    </section>
+    <script>
+        function displayBox() {
+                const inputText = document.getElementById("input-text").value.trim().toLowerCase();
+                const textBox = document.getElementById("text-box");
+                const warningText = "rotten"; 
+                setTimeout(function () {
+                    const imgBox = document.getElementById('imgBox');
+                    imgBox.style.display = 'none';
+                     }, 1000); 
+                    
+                
+                textBox.innerHTML = "";
+
+                if (inputText === warningText) {
+                    const  rotbox = document.createElement("div");
+                    rotbox.innerText = "Oh no! The fruit you predicted seems to be in a deteriorated state and may not be safe for consumption. Your well-being is our top priority, so we kindly urge you not to consume it. Please dispose of it responsibly to ensure your safety and health. If you encounter any uncertainties, consider seeking advice from a healthcare professional. Thank you for your understanding and stay safe";
+                    rotbox.classList.add("rot-box");
+                    textBox.appendChild( rotbox);
+                } 
+                else if (inputText === "fresh") { 
+                    const freshBox = document.createElement("div");
+                    freshBox.innerText = "Hooray!  The fruit you predicted is fresh and safe to consume. Enjoy your delicious and nutritious treat with confidence. We're delighted that your choice is a healthy one! Remember to savor the wonderful flavors and goodness nature has to offer. Happy eating!";
+                    freshBox.classList.add("fresh-box");
+                    textBox.appendChild(freshBox);
+                } 
+    
+       }
+
+       function displayImage() {
+        const input = document.getElementById('image-input');
+        const imageContainer = document.getElementById('image-container');
+
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                const image = new Image();
+                image.src = e.target.result;
+                image.style.maxWidth = '300px';
+                image.style.marginTop = '20px';
+
+                imageContainer.innerHTML = '';
+
+                imageContainer.appendChild(image);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const imgBox = document.getElementById('imgBox');
+        imgBox.classList.add('imgBox-enter');
+    });
+    
+</script>
+
+
+
+
+
+
+  </script>
+</body>
+

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh Sense</title>
+    <link rel = "icon" href ="static/Images/sense.png"
+        type = "image/x-icon">
+    <link rel="stylesheet" href="static/styles/style.css">
+        <style>
+        body{
+            background-color:#b3e0ff;
+        }
+       .img-rightcorner{
+        position:fixed;
+        left:-40px;
+        top:160px;
+
+       }
+       .img-top{
+        position:fixed;
+        top:-18px;
+        left:0px;
+        }
+
+       .img-bottom{
+        position:fixed;
+        bottom:-15px;
+        left:0px;
+       }
+       .img-leftcorner{
+        position:fixed;
+        right:0px;
+        top:160px;
+        justify-content:space-between;
+
+
+       }
+       .img-top ul{
+        display:grid;
+        grid-template-columns:repeat(8,1fr);
+        grid-gap:2px;
+        grid-column-start: 2;
+       }
+       .img-bottom ul{
+        display:grid;
+        grid-template-columns:repeat(8,1fr);
+        grid-gap:2px;
+        grid-column-start: 2;
+
+       }
+       .img-leftcorner ul,.img-rightcorner ul{
+
+        display: grid;
+        grid-template-rows: repeat(2,1fr);
+
+
+       }
+       .img-top ul li img,.img-bottom ul li img,.img-leftcorner ul li img,.img-rightcorner ul li img{
+        height:190px;
+        width:190px;
+       }
+     .content{
+        position: fixed;
+        top:300px;
+        left:300px;
+     }
+     .head ul{
+        position: fixed;
+        top:220px;
+        left:800px;
+        display: flex;
+
+        }
+        .head ul li{
+            list-style:none;
+
+
+        }
+        .head  ul li a{
+            display: inline-block;
+            color:#f33f03;
+            font-weight:600;
+            font-size: 25;
+            margin-left: 40px;
+            text-decoration:none;
+            font-size: x-large;
+            font-family: 'Rufina', serif;
+
+        }
+        .head  ul li a:hover{
+            color:rgb(28, 171, 49);
+        }
+        .textBox{
+            position: fixed;
+            top:250px;
+            left:300px;
+            width:1000px;
+            overflow: hidden;
+            font-family: 'Rufina', serif;
+            font-size:xx-large;
+        }
+
+            .imcontent{
+                font-size: large;
+                font-family: 'Rufina', serif;
+                overflow: hidden;
+            }
+    </style>
+</head>
+<body>
+    <div class="img-leftcorner">
+        <ul>
+
+           <li><img src="static/Images/Mango.jpeg" height="140" width="140" onclick="mango_display()"></li>
+           <li><img src="static/Images/Pappaya.jpeg"  height="140" width="140" onclick="papaya_display()"></li>
+
+
+
+        </ul>
+    </div>
+
+    <div class="img-rightcorner">
+        <ul>
+
+
+            <li><img src="static/Images/Litchie.jpeg" height="140" width="140" onclick="lyche_display()"></li>
+            <li><img src="static/Images/banana.jpeg"  height="140" width="140" onclick="banana_display()"></li>
+
+
+
+
+
+        </ul>
+    </div>
+    <div class="img-top">
+
+        <ul>
+            <div class="logo"><li><img src="static/Images/sense.png" height="250" ></li></div>
+            <li><img src="static/Images/Avocado.jpeg" onclick="avo_display()"></li>
+            <li><img src="static/Images/pine.jpeg" class="pine" onclick="pine_display()"></li>
+            <li><img src="static/Images/straw.jpeg" class="straw" onclick="straw_display()"></li>
+            <li><img src="static/Images/kiwi.jpeg" class="kiwi" onclick="kiwi_display()"></li>
+            <li><img src="static/Images/custard.jpg" class="custard" onclick="custard_display()"></li>
+            <li><img src="static/Images/jack.jpg" class="jack" onclick="jack_display()"></li>
+            <li><img src="static/Images/orange.jpeg" class="orange" onclick="orange_display()"></li>
+        </ul>
+
+
+
+    </div>
+    <div class="img-bottom">
+        <ul>
+                <li><img src="static/Images/pomg.jpeg" class="pomg" onclick="pomg_display()"></li>
+                <li>  <img src="static/Images/guava.jpeg" class="guava" onclick="guava_display()"></li>
+                <li><img src="static/Images/wm.jpeg" class="wm" onclick="wm_display()"></li>
+                <li><img src="static/Images/pason.jpeg" height="190" width="190" onclick="pason_display()"></li>
+                <li><img src="static/Images/sapota.jpeg" class="sapota" onclick="sapota_display()"></li>
+                <li><img src="static/Images/dragon.jpeg" class="dragon" onclick="dragon_display()"></li>
+                <li><img src="static/Images/apricots.jpeg" onclick="apricot_display()"></li>
+                <li><img src="static/Images/grape.jpg" class="grape" onclick="grape_display()"></li></ul>
+
+
+        </ul>
+    </div>
+    <div class="content">
+        
+        <div class="head">
+            <ul>
+                 <li><a href="{{ url_for('homepage') }}">Home</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('upload_image') }}">Predict</a></li>
+                <li><a href="{{ url_for('facts') }}">Facts</a></li>
+            </ul>
+        </div>
+<div class="textBox">
+
+            <div class="imcontent">
+
+                <p class="imcon">Explore the fascinating world of fruits with Fruity Facts.
+                    <br>Here, you'll find interesting and informative facts about a variety of delicious and nutritious fruits.
+                    <br> Click on the fruit images below to learn more about each fruit's health benefits, nutritional value, and fun facts.
+                    <br>Get ready to discover the wonders of nature's sweetest treats!
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <script>
+        // Function to be executed when the pine image is clicked
+
+        function pine_display() {
+            const imcn = document.querySelector(".imcon");
+            imcn.innerHTML = `
+                <h1>PINEAPPLE</h1>
+                <div>
+                    <p> Pineapple is a good source of vitamin C, supporting the immune system and collagen production. It also contains vitamin B6, aiding metabolism and nerve function. Pineapple provides essential minerals like manganese, promoting enzyme activity and antioxidant defense, and small amounts of potassium for heart health and muscle function. </p>
+                    <p>
+                        Pineapple is a tropical fruit known for its sweet and tangy flavor and spiky, rough exterior. It belongs to the bromeliad family, and contrary to popular belief, pineapples do not grow on trees but are a cluster of berries fused together. Pineapple contains an enzyme called bromelain, which can help with digestion and has potential anti-inflammatory properties.                    </p>
+                </div>
+            `;        }
+        function pomg_display() {
+            const imcn = document.querySelector(".imcon");
+            imcn.innerHTML = `
+                <h1>POMEGRANATE</h1>
+                <div>
+                    <p>Pomegranates are rich in vitamin C, supporting the immune system and skin health. They also contain vitamin K, promoting blood clotting and bone health. Pomegranates provide essential minerals like potassium, aiding heart health and blood pressure regulation, as well as small amounts of calcium and iron.  </p>
+                    <p>
+                        Pomegranate is an ancient fruit with a tough outer skin and juicy, ruby-red seeds inside. It is rich in antioxidants, especially punicalagins and anthocyanins, which may have various health benefits. Pomegranate has cultural significance in many regions and is often associated with fertility, abundance, and good health.</p>                </div>
+            `;        }
+
+        function straw_display() {
+            const imcn = document.querySelector(".imcon");
+            imcn.innerHTML = `
+                <h1>STRAWBERRY</h1>
+                <div>
+                    <p> Strawberries are a good source of vitamin C, promoting immune function and collagen production. They also contain vitamin K, supporting blood clotting and bone health, and vitamin B9 (folate), important for cell division and DNA synthesis. In terms of minerals, strawberries provide potassium, aiding heart health and nerve function, as well as small amounts of calcium and magnesium for bone health and muscle function. </p>
+                    <p>
+                        Strawberries are not true berries but rather aggregate fruits, with each seed representing a separate fruit. They are an excellent source of vitamin C, supporting the immune system and skin health. Strawberries also contain antioxidants like anthocyanins, which give them their vibrant red color and have potential health benefits.                        </div>
+            `;        }
+
+        function guava_display() {
+            const imcn = document.querySelector(".imcon");
+            imcn.innerHTML = `
+                <h1>GUAVA</h1>
+                <div>
+                    <p>Guava is a rich source of vitamin C, providing more than four times the amount found in oranges, supporting the immune system and collagen production. It also contains vitamin A, promoting vision and skin health, as well as vitamins B3 and B6, aiding metabolism and nerve function. Guava is a good source of essential minerals like potassium, supporting heart health and blood pressure regulation. </p>
+                    <p>
+                        Guava is a tropical fruit known for its unique flavor and aroma, ranging from sweet to slightly tangy. It is rich in dietary fiber, promoting digestive health and aiding weight management. Guava contains more vitamin C than many other fruits, making it a great choice to boost the immune system and overall well-being.</p>                        </div>
+            `;        }
+
+        function wm_display() {
+            const imcn = document.querySelector(".imcon");
+            imcn.innerHTML = `
+                <h1>WATER MELON</h1>
+                <div>
+                    <p> Watermelon is a good source of vitamin C, supporting the immune system and skin health. It also contains vitamins A and B-complex, promoting vision and overall well-being. Additionally, watermelon provides minerals like potassium, aiding heart health and muscle function, and magnesium, supporting nerve and bone health.  </p>
+                    <p>
+                        Watermelon is made up of about 90% water, making it a refreshing and hydrating fruit. It is a member of the Cucurbitaceae family, which includes cucumbers, pumpkins, and squash. Watermelon seeds are edible and can be roasted, offering a crunchy and nutritious snack.</p>                        </div>
+            `;        }
+
+        function sapota_display() {
+            const imcn = document.querySelector(".imcon");
+            imcn.innerHTML = `
+                <h1>SAPOTA</h1>
+                <div>
+                    <p> Sapota, also known as chikoo or sapodilla, is a tropical fruit rich in vitamin A, supporting vision and immune function. It contains essential minerals like potassium, promoting heart health and maintaining blood pressure. Sapota is also a good source of dietary fiber, aiding digestion and supporting gut health.  </p>
+                    <p>
+                        Sapota, or chikoo, is a delicious tropical fruit with a sweet and caramel-like flavor. It originated in Mexico and is now widely grown in various tropical regions around the world. Sapota trees are evergreen and can produce fruit for up to 50 years.                        </div>
+            `;        }
+
+        function dragon_display() {
+            const imcn = document.querySelector(".imcon");
+            imcn.innerHTML = `
+                <h1>DRAGON FRUIT</h1>
+                <div>
+                    <p>Dragon fruit is a good source of vitamin C, supporting the immune system and skin health. It also contains essential minerals like iron, promoting oxygen transport in the body, and magnesium, supporting muscle and nerve function. Additionally, dragon fruit provides small amounts of B vitamins, aiding energy metabolism and overall well-being.  </p>
+                    <p>
+                        Dragon fruit, also known as pitaya, is a unique tropical fruit with vibrant pink or white flesh and black edible seeds. It belongs to the cactus family and is native to Central and South America. Dragon fruit is a good source of vitamin C, antioxidants, and fiber, promoting overall health and digestion.</p>                        </div>
+            `;        }
+
+
+        function kiwi_display() {
+            const imcn = document.querySelector(".imcon");
+            imcn.innerHTML = `
+                <h1>KIWI</h1>
+                <div>
+                    <p> Kiwi fruit is rich in vitamin C, providing more than 100% of the recommended daily intake per serving, supporting the immune system and collagen production. It also contains vitamin K, promoting blood clotting and bone health, and vitamin E, acting as an antioxidant. Kiwi fruit is a good source of minerals like potassium, supporting heart health and nerve function, and small amounts of other minerals like calcium and magnesium.  </p>
+                    <p>
+                        Kiwi fruit, originally from China, was once known as the "Chinese Gooseberry" before being renamed. The fuzzy brown skin is edible and contains more fiber and vitamin C than the green flesh. Kiwis are also among the few fruits that continue to ripen after being picked.                        </div>
+            `;        }
+
+
+        function jack_display() {
+            const imcn = document.querySelector(".imcon");
+            imcn.innerHTML = `
+                <h1>JACK FRUIT</h1>
+                <div>
+                    <p> Jackfruit is a good source of vitamin C, an antioxidant supporting the immune system and skin health. It also contains essential minerals like potassium, aiding heart function and maintaining blood pressure. Jackfruit provides small amounts of other vitamins, such as vitamin A and some B-complex vitamins, as well as minerals like magnesium and calcium.  </p>
+                    <p>
+                        Jackfruit is the largest tree-borne fruit, weighing up to 80 pounds (36 kilograms). It is a versatile fruit, used both ripe as a sweet dessert and unripe as a meat substitute in savory dishes due to its meaty texture. Jackfruit is rich in dietary fiber, providing about 3.6 grams per 100 grams, supporting digestive health and promoting a feeling of fullness.</p>                        </div>
+            `;        }
+
+        function banana_display() {
+            const imcn = document.querySelector(".imcon");
+            imcn.innerHTML = `
+                <h1>BANANA</h1>
+                <div>
+                    <p>Bananas are rich in vitamin B6, essential for brain development and neurotransmitter synthesis. They also contain potassium, promoting heart health and regulating blood pressure. Additionally, bananas provide vitamin C, supporting the immune system and collagen production.  </p>
+                    <p>
+                        Bananas are the world's most popular fruit and are not grown on trees, but rather large herbaceous plants. They are a great source of energy due to their natural sugars, making them a popular choice for athletes and individuals with an active lifestyle. Bananas also contain tryptophan, a precursor to serotonin, which can help improve mood and reduce stress.</p>                        </div>
+            `;        }
+
+        function custard_display() {
+            const imcn = document.querySelector(".imcon");
+            imcn.innerHTML = `
+                <h1>CUSTARD APPLE </h1>
+                <div>
+                    <p> Custard apples are a good source of vitamin C, promoting a healthy immune system and skin health. They also contain minerals like potassium, supporting heart health and muscle function, and copper, which is essential for enzyme activity and iron absorption. Additionally, custard apples provide small amounts of vitamin A, B-complex vitamins, and magnesium </p>
+                    <p>
+                        Custard apples, also known as "cherimoya" or "sugar apple," are tropical fruits rich in fiber, vitamins, and minerals. They are a good source of vitamin C, promoting a healthy immune system. Custard apples contain natural compounds like acetogenins, which may have potential anticancer properties.</p>                        </div>
+            `;        }
+
+        function grape_display() {
+            const imcn = document.querySelector(".imcon");
+            imcn.innerHTML = `
+                <h1>GRAPE</h1>
+                <div>
+                    <p> Grapes contain vitamins C and K, supporting immunity and blood clotting. They also provide minerals like potassium, promoting heart health, and trace amounts of vitamin B6. </p>
+                    <p>
+                        Grapes are packed with natural antioxidants like resveratrol, which may have heart-protective benefits. They also contain polyphenols that support overall health and may reduce the risk of chronic diseases. Grapes come in various colors, each offering unique nutritional advantages, such as red grapes providing more anthocyanins and white grapes having more antioxidants like quercetin.</p>                        </div>
+            `;        }
+
+        function orange_display() {
+            const imcn = document.querySelector(".imcon");
+            imcn.innerHTML = `
+                <h1>ORANGE</h1>
+                <div>
+                    <p>Oranges are rich in vitamin C, an antioxidant that supports the immune system. They also contain essential minerals like potassium, promoting heart health and nerve function. Additionally, oranges provide small amounts of vitamins A, B-complex, and minerals like calcium and magnesium.  </p>
+                    <p>
+                        Oranges are not only a rich source of vitamin C but also contain fiber, aiding digestion and promoting gut health. Additionally, the flavonoids in oranges may help reduce inflammation and support cardiovascular health. The bright color of oranges is due to carotenoid pigments, which act as antioxidants in the body.</p>                        </div>
+            `;        }
+            function mango_display() {
+            const imcn = document.querySelector(".imcon");
+            imcn.innerHTML = `
+                <h1>MANGO</h1>
+                <div>
+                    <p>Mangoes are rich in essential vitamins, including vitamin C, vitamin A, and vitamin E. These vitamins contribute to skin health, immune system support, and overall well-being. Enjoying mangoes as part of a balanced diet can help ensure you get these beneficial nutrients. promoting heart health and nerve function. Additionally, oranges provide small amounts of vitamins A, B-complex, and minerals like calcium and magnesium. </p>
+                    <p>
+                        Mangoes are believed to be one of the most widely consumed fruits globally. They belong to the drupe family, making them related to peaches and almonds. Depending on the variety, mangoes can come in various colors, such as yellow, green, and even red. </p> </div>
+            `;        }
+            function lyche_display() {
+            const imcn = document.querySelector(".imcon");
+            imcn.innerHTML = `
+                <h1>LITCHIE</h1>
+                <div>
+                    <p> Lychee fruit is a good source of vitamin C, providing about 136% of the daily recommended intake per 100 grams. It also contains vitamins B6 and B5, contributing to energy metabolism and supporting healthy skin and nerve function. Incorporating lychee into your diet can help you benefit from these essential vitamins. </p>
+                    <p>
+                        Lychee, a tropical fruit native to Southeast Asia, has been cultivated for over 2,000 years. It is known for its sweet and aromatic flavor, and its rough, red, or pink outer skin encloses juicy translucent white flesh. Lychee is a rich source of vitamin C, copper, and antioxidants, making it a nutritious and delightful addition to various dishes and desserts. </p> </div>
+            `;        }
+            function avo_display() {
+            const imcn = document.querySelector(".imcon");
+            imcn.innerHTML = `
+                <h1>AVOCADOS</h1>
+                <div>
+                    <p> Avocados are a good source of several vitamins, including vitamin K, vitamin C, vitamin E, and various B vitamins. They are particularly rich in monounsaturated fats, which are beneficial for heart health. Additionally, avocados provide essential minerals such as potassium and magnesium. </p>
+                    <p>
+                        Avocado is a unique fruit known for its creamy texture and rich, nutty flavor. It's often referred to as a superfood due to its high nutrient content, including healthy fats, fiber, potassium, and vitamins C, K, and E. Native to Central and South America, avocados are now widely enjoyed and used in various dishes worldwide.</p> </div>
+            `;        }
+            function apricot_display() {
+            const imcn = document.querySelector(".imcon");
+            imcn.innerHTML = `
+                <h1>APRICOTS</h1>
+                <div>
+                    <p>Apricots are a good source of vitamins A and C, contributing to healthy vision, immune system function, and skin health. They also contain vitamin E, an antioxidant that helps protect cells from damage. Enjoying apricots as part of a balanced diet can provide these essential vitamins and promote overall well-being. </p>
+                    <p>
+                        Apricots are members of the rose family and are closely related to peaches, plums, and cherries. Originating in China, apricots have been cultivated for over 4,000 years and were brought to Europe by the ancient Romans. They are prized for their sweet and tangy flavor and are used in various culinary applications, including jams, desserts, and savory dishes.</p> </div>
+            `;        }
+            function pason_display() {
+            const imcn = document.querySelector(".imcon");
+            imcn.innerHTML = `
+                <h1>PASSION FRUIT</h1>
+                <div>
+                    <p> Passion fruit is rich in various vitamins, including vitamin C, vitamin A, and certain B vitamins. It is particularly high in vitamin C, which is an essential antioxidant that supports the immune system and helps the body absorb iron </p>
+                    <p>
+                        Passion fruit, also known as maracuja, is a tropical fruit with a tough outer rind and juicy, aromatic pulp filled with seeds. It is a good source of dietary fiber, vitamin C, and antioxidants, promoting digestive health and immune system support. The fruit's unique and refreshing taste makes it a popular ingredient in juices, desserts, and cocktails worldwide.</p>                        </div>
+            `;        }
+            function papaya_display() {
+            const imcn = document.querySelector(".imcon");
+            imcn.innerHTML = `
+                <h1>PAPAYA</h1>
+                <div>
+                    <p> Papaya is a tropical fruit packed with essential vitamins, including vitamin C, vitamin A, and folate. Vitamin C supports the immune system and collagen production, while vitamin A promotes healthy vision and skin. Folate is vital for cell division and is especially important during pregnancy for fetal development </p>
+                    <p>
+                        Papaya is a tropical fruit with orange or pinkish flesh and black seeds. It's rich in vitamins A, C, folate, and contains the digestive enzyme papain.</P></div>
+            `;        }
+
+
+
+
+
+
+    </script>
+</body>

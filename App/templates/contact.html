@@ -1,0 +1,128 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh Sense</title>
+    <link rel = "icon" href ="static/Images/sense.png"
+        type = "image/x-icon">
+    <link rel="stylesheet" href="static/styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rufina:wght@700&display=swap" rel="stylesheet">
+</head>
+<style>
+    header ul{
+   position: relative;
+
+    left:450px;
+    display: flex;
+
+}
+header ul li{
+    list-style:none;
+
+
+}
+header ul li a{
+    display: inline-block;
+    color:#f33f03;
+    font-weight:600;
+    font-size: 25;
+    margin-left: 40px;
+    text-decoration:none;
+}
+header ul li a:hover{
+    color:rgb(28, 171, 49);
+}
+
+    .center{
+        position:fixed;
+        top:10px;
+        left:250px;
+    }
+    header ul {
+        position:fixed;
+        top:50px;
+        left:700px;
+        font-family: 'Rufina', serif;
+
+    }
+    .logo img{
+        position:fixed;
+        left:260px;
+        top:10px;
+        width:200px;
+        height: 170px;
+
+    }
+    .info{
+        position:fixed;
+        top:180px;
+        left:260px;
+        text-decoration: none;
+        list-style: none;
+        font-size: 24;
+        display: flex;
+        flex-direction: column;
+        width:1000px;
+        overflow: hidden;
+        font-family: 'Rufina', serif;
+    }
+    .team{
+        position:fixed;
+        top:590px;
+        left:750px;
+        font-family: 'Rufina', serif;
+    }
+    .circle
+{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: #cad0b9;
+    clip-path:circle(500px at right 900px);
+
+}
+
+</style>
+<body>
+    <div class="circle"></div>
+    <div class="center">
+    <div class="logo">
+        <img src="static/Images/sense.png" alt="">
+    </div>
+    <header>
+        <ul>
+            <li><a href="{{ url_for('homepage') }}">Home</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            <li><a href="{{ url_for('upload_image') }}">Predict</a></li>
+            <li><a href="{{ url_for('facts') }}">Facts</a></li>
+        </ul>
+    </header>
+    <div class="info">
+
+
+        <div>At FS , we pride ourselves on revolutionizing the way you choose your fruits. Say goodbye to the uncertainty of picking the perfect fruit, and let our cutting-edge technology take the guesswork out of your shopping experience.</div>
+
+
+     <br>
+      <div><b>Here's how it works:</b></div>
+     <br>
+      <div><b> Scan & Identify:</b> Simply hold your smartphone or camera over the fruit, and our intelligent algorithm will instantly recognize and classify its freshness level.
+      </div>
+      <br>
+            <div><b>Real-Time Results:</b> Within seconds, you'll receive real-time results and a clear indication of whether the fruit is fresh, ripe, or past its prime.
+            </div><br>
+            <div>
+            <b>Shop with Confidence: </b>Armed with our Fresh vs. Rotten Fruit Prediction, you can confidently choose the best fruits, reducing food waste and optimizing your shopping experience.
+        </div> <br>
+        <div><b>REACH US :</b> sai646152@gmail.com<br>
+        <b>CALL :</b>8341742116
+          </div>
+        </div><br>
+        </div>
+</div>
+</body>
+</html>
